@@ -19,6 +19,7 @@
 Density function for a multimensional Gaussian distribution.
 """
 
+from __future__ import print_function
 from numpy.linalg import inv, det
 from numpy import dot, pi, sqrt, power, transpose
 from math import exp, log
@@ -99,6 +100,6 @@ if __name__=="__main__":
     mean=random(4)
     mgauss=MultiGauss(mean, random((4,4)))
 
-    print mgauss(mean)
-    print mgauss
+    print(mgauss(mean))
+    print(mgauss)
 

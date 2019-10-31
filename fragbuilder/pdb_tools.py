@@ -1,3 +1,4 @@
+from __future__ import print_function
 import math
 import sys
 
@@ -54,7 +55,7 @@ class PDB:
             Can be used for iterating over residues, e.g.:
 
             >>> for i in pdbfile.get_residue_numbers():
-            ...     print i, pdbfile.get_residue_bb_angles(i)
+            ...     print(i, pdbfile.get_residue_bb_angles(i))
         """
         length = self.get_length()
 
@@ -243,7 +244,7 @@ class PDB:
                     # are swapped, the angle will be around 120 deg.
                     if check_angle > 0:
                         sc_atom5 = sc_atom5_b
-                        print "WARNING: Correcting for incorrect naming of CD1 and CD2 in residue LEU%i." %  residue.get_id()[1]
+                        print("WARNING: Correcting for incorrect naming of CD1 and CD2 in residue LEU%i." %  residue.get_id()[1])
 
                     chi1 = calc_dihedral(sc_atom1, sc_atom2, sc_atom3, sc_atom4)
                     chi2 = calc_dihedral(sc_atom2, sc_atom3, sc_atom4, sc_atom5)
@@ -341,7 +342,7 @@ class PDB:
                     # are swapped, the angle will be around 120 deg.
                     if check_angle > 0:
                         sc_atom4 = sc_atom4_b
-                        print "WARNING: Correcting for incorrect naming of CG1 and CG2 in residue VAL%i." %  residue.get_id()[1]
+                        print("WARNING: Correcting for incorrect naming of CG1 and CG2 in residue VAL%i." %  residue.get_id()[1])
 
                     chi1 = calc_dihedral(sc_atom1, sc_atom2, sc_atom3, sc_atom4)
                     return [chi1]

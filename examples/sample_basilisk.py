@@ -1,3 +1,4 @@
+from __future__ import print_function
 from fragbuilder import Basilisk_DBN
 from fragbuilder import set_seed
 
@@ -7,6 +8,6 @@ dbn = Basilisk_DBN()
 
 chi, bb, ll = dbn.get_sample("K")
 
-print "Chi angles:      ", chi
-print "Phi/Psi angles:  ", bb
-print "Log likelihood:  ", ll
+print("Chi angles:      ", chi)
+print("Phi/Psi angles:  ", bb)
+print("Log likelihood:  ", ll)

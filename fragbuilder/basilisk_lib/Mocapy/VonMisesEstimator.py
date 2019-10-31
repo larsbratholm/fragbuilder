@@ -19,13 +19,14 @@
 Von Mises estimator.
 """
 
+from __future__ import print_function
 from math import sqrt, pow
 
 MAX_KAPPA_VALUE = 500
 
 def estimate_kappa(N, r, mu_coords):
     if N==0:
-        print "WARNING: There is no data to estimate mu and kappa from"
+        print("WARNING: There is no data to estimate mu and kappa from")
         return MAX_KAPPA_VALUE+1
 
     else:    

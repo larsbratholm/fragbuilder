@@ -1,3 +1,4 @@
+from __future__ import print_function
 import os
 import sys
 import openbabel
@@ -62,7 +63,7 @@ class Peptide:
         elif self._state_nterm == "neutral":
             residues.append(LeftNeutralCap())
         else:
-            print "ERROR: Unknown nterm =", self._state_nterm
+            print("ERROR: Unknown nterm =", self._state_nterm)
             exit(1)
 
         for i in sequence:
@@ -75,7 +76,7 @@ class Peptide:
         elif self._state_cterm == "neutral":
             residues.append(RightNeutralCap())
         else:
-            print "ERROR: Unknown cterm =", self._state_cterm
+            print("ERROR: Unknown cterm =", self._state_cterm)
             exit(1)
 
 
@@ -88,7 +89,7 @@ class Peptide:
             Can be used for iterating over residues, e.g.:
 
             >>> for i in pdbfile.get_residue_numbers():
-            ...     print i, pdbfile.get_residue_bb_angles(i)
+            ...     print(i, pdbfile.get_residue_bb_angles(i))
         """
         length = self.get_length()
 
@@ -221,7 +222,7 @@ class Peptide:
         file_out = open(temp_xyz, "w")
         file_out.write(str(TotalAtoms) + "\n")
         file_out.write("\n")
-    
+
 #       print Fragment
         for Residue in Fragment:
                 for Atom in Residue.AwesomeMol:
@@ -403,7 +404,7 @@ class Peptide:
 
         """
         if (self._state_nterm == "methyl" or self._state_cterm == "methyl") and not QUIET:
-            print "WARNING: Output from PDB-files is unsupported for methyl caps. Use at own risk!"
+            print("WARNING: Output from PDB-files is unsupported for methyl caps. Use at own risk!")
         self._molecule.write("pdb", filename, overwrite=True)
 
     def write_xyz(self, filename):
@@ -460,11 +461,11 @@ class Peptide:
             psi   = angles[1]
             omega = math.pi
         else: 
-            print "ERROR: Angles must be of type: [phi, psi, omega] or [phi, psi]"
+            print("ERROR: Angles must be of type: [phi, psi, omega] or [phi, psi]")
             sys.exit(1)
 
         if res_nr < 1 or res_nr > len(self._residues) - 2:
-                        print "ERROR: Error in set_bb_angles. User supplied index:", res_nr, "Allowed range: 1 -", len(self._residues) - 2
+                        print("ERROR: Error in set_bb_angles. User supplied index:", res_nr, "Allowed range: 1 -", len(self._residues) - 2)
                         sys.exit(1)
 
         offset_prev = 0
@@ -513,8 +514,8 @@ class Peptide:
         """
 
         if len(angles_deg) != len(self._residues[res_nr].SC):
-            print "ERROR: Could not set residue %i chi-angles to" % (res_nr), angles_deg
-            print "ERROR: Residue %i has %i chi angles, %i given" % (res_nr, len(self._residues[res_nr].SC), len(angles_deg))
+            print("ERROR: Could not set residue %i chi-angles to" % (res_nr), angles_deg)
+            print("ERROR: Residue %i has %i chi angles, %i given" % (res_nr, len(self._residues[res_nr].SC), len(angles_deg)))
 
             exit(1)
 

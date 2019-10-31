@@ -19,6 +19,7 @@
 Von Mises node.
 """
 
+from __future__ import print_function
 from math import pi, cos, sin, acos
 from numpy import zeros, concatenate, array, sum, array2string, cov,\
                   log, exp, isnan
@@ -206,10 +207,10 @@ class VMNode(Node):
                 w=ess_w[i]
                 norm_r=norm(r)
 
-                print "do_M_step (%i): r=%s, w=%s, norm_r=%s" % (i,r,w,norm_r)
+                print("do_M_step (%i): r=%s, w=%s, norm_r=%s" % (i,r,w,norm_r))
 
                 if w == 0:
-                    print "WARNING: There is no data to estimate mu and kappa from"
+                    print("WARNING: There is no data to estimate mu and kappa from")
                     kappas[i]=self.kappas[i]
                     mus[i]=self.mus[i]
                 else:

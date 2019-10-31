@@ -1,3 +1,4 @@
+from __future__ import print_function
 from fragbuilder import Peptide
 from fragbuilder import G09_opt
 from fragbuilder import G09_energy
@@ -6,7 +7,7 @@ from fragbuilder import G09_NMR
 sequence = "GLG"
 pep = Peptide(sequence, nterm="methyl", cterm="methyl")
 
-print "Charge:", pep.get_charge()
+print("Charge:", pep.get_charge())
 
 for i in pep.get_residue_numbers():
     pep.sample_bb_angles(i)

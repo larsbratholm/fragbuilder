@@ -9,6 +9,7 @@ ftp://ftp.ncbi.nih.gov/entrez/misc/data/gc.prt
 Last updated for Version 3.9
 """
 
+from __future__ import print_function
 import __init__ as Alphabet
 import IUPAC
 import IUPACData
@@ -63,8 +64,8 @@ class CodonTable(object):
 
         e.g.
         >>> import Bio.Data.CodonTable
-        >>> print Bio.Data.CodonTable.standard_dna_table
-        >>> print Bio.Data.CodonTable.generic_by_id[1]
+        >>> print(Bio.Data.CodonTable.standard_dna_table)
+        >>> print(Bio.Data.CodonTable.generic_by_id[1])
         """
 
         if self.id:
@@ -872,7 +873,7 @@ for n in ambiguous_generic_by_id:
     if "UAA" in unambiguous_rna_by_id[n].stop_codons \
     and "UGA" in unambiguous_rna_by_id[n].stop_codons:
         try:
-            print ambiguous_dna_by_id[n].forward_table["TRA"]
+            print(ambiguous_dna_by_id[n].forward_table["TRA"])
             assert False, "Should be a stop only"
         except KeyError:
             pass

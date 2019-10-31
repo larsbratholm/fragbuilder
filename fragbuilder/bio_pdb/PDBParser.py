@@ -5,6 +5,7 @@
 
 """Parser for PDB files."""
 
+from __future__ import print_function
 import warnings
 
 import numpy
@@ -298,14 +299,10 @@ if __name__=="__main__":
             p=c.get_parent()
             assert(p is m)
             for r in c:
-                print r
+                print(r)
                 p=r.get_parent()
                 assert(p is c)
                 for a in r:
                     p=a.get_parent()
                     if not p is r:
-                        print p, r
-                    
-                
-                
-        
+                        print(p, r)

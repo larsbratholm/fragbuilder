@@ -20,6 +20,7 @@ Fast parent node value/node value lookup for discrete nodes.
 """
 
 
+from __future__ import print_function
 from numpy import take, multiply
 
 from MocapyExceptions import MocapyException
@@ -155,12 +156,12 @@ if __name__=="__main__":
 
     f=ParentMap(seq, parents_0, parents_1, 2, 0.0)
 
-    print f[0]
-    print f[1]
+    print(f[0])
+    print(f[1])
 
     f[0]=30
     f[1]=60
 
-    print f[0]
-    print f[1]
+    print(f[0])
+    print(f[1])
 

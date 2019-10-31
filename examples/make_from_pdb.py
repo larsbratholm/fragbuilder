@@ -1,3 +1,4 @@
+from __future__ import print_function
 from fragbuilder import PDB
 from fragbuilder import Peptide
 
@@ -21,7 +22,7 @@ for i in pdb.get_residue_numbers():
     pep_seq = seq[i-2:i+1]
     pep = Peptide(pep_seq)
 
-    print i, pep_seq
+    print(i, pep_seq)
 
     # Loop over preceding, central, and following residue.
     for j in [-1, 0, 1]:

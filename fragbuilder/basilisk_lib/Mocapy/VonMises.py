@@ -21,6 +21,7 @@ Von Mises sampler and density.
 
 
 
+from __future__ import print_function
 from math import pi, acos, cos, sin
 from numpy import log, exp, i0            # i0 is modified Bessel function of first kind
 from random import vonmisesvariate
@@ -79,7 +80,7 @@ class VMSampler:
         try:
            value = vonmisesvariate(float(self.mu),float(self.k))
         except:
-           print "ERROR: vonmisesvariate(%s,%s)" % (float(self.mu), float(self.k))
+           print("ERROR: vonmisesvariate(%s,%s)" % (float(self.mu), float(self.k)))
            raise
         
         return mod2pi(value)
