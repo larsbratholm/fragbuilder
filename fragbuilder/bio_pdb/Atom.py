@@ -8,10 +8,10 @@
 import numpy
 import warnings
 
-from Entity import DisorderedEntityWrapper
-from PDBExceptions import PDBConstructionWarning
-from Vector import Vector
-from Alphabet import IUPACData
+from .Entity import DisorderedEntityWrapper
+from .PDBExceptions import PDBConstructionWarning
+from .Vector import Vector
+from .Alphabet import IUPACData
 
 class Atom(object):
     def __init__(self, name, coord, bfactor, occupancy, altloc, fullname, serial_number,

@@ -61,12 +61,11 @@ class VMSampler:
         """
         # Make sure mu has the right shape
         if mu<0 or mu>2*pi:
-            raise VMException, "Mu has to lie in the interval between 0 and 2pi"
+            raise VMException("Mu has to lie in the interval between 0 and 2pi")
         else:
-	    # If so the parameters are stored (mu as radian)
-           self.mu = mu
-	   self.k = k
-	   
+            # If so the parameters are stored (mu as radian)
+            self.mu = mu
+            self.k = k
 
     def __call__(self):
         """
@@ -98,16 +97,16 @@ class VMDens:
         @param mu: an angle in the interval [0,2pi[, VM mean direction
         @type mu: float
         """
-	
-	# Make sure mu is in the correct interval
-        if mu<0 or mu>2*pi:
-	    raise Exception, "Mu has to lie between 0 and 2pi"
 
-	#Store mu and kappa
+        # Make sure mu is in the correct interval
+        if mu<0 or mu>2*pi:
+            raise Exception("Mu has to lie between 0 and 2pi")
+
+        #Store mu and kappa
         self.mu = mu
         self.k = k
 
-	# Calculate and store the logarithm of the numerator in the
+        # Calculate and store the logarithm of the numerator in the
         # density function (= the reciprocal of the normalising constant)
         self.log_denom = log(2*pi*i0_float(k))
 

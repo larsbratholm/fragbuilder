@@ -26,10 +26,10 @@ try:
 except ImportError:
     # Replace mpi module with dummy module
     # to run on a single processor without MPI
-    import DummyMPI
+    from . import DummyMPI
     mpi=DummyMPI
 
-from MocapyExceptions import *
+from .MocapyExceptions import *
 
 
 class Node:
@@ -166,7 +166,7 @@ class Node:
         @type slice: int
         """
         if self.is_constructed==1:
-            raise MocapyException, "a Node should only be constructed once."
+            raise MocapyException("a Node should only be constructed once.")
         self.slice=slice
         self.is_constructed=1
 

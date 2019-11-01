@@ -1,6 +1,6 @@
-import basilisk_lib
+from . import basilisk_lib
 
-from math_utils import DEG_TO_RAD, RAD_TO_DEG
+from .math_utils import DEG_TO_RAD, RAD_TO_DEG
 
 import math
 import numpy.random

@@ -23,7 +23,7 @@ Fast parent node value/node value lookup for discrete nodes.
 from __future__ import print_function
 from numpy import take, multiply
 
-from MocapyExceptions import MocapyException
+from .MocapyExceptions import MocapyException
 
 
 class ParentMap:
@@ -125,7 +125,7 @@ class ParentMap:
         Replace the sequence - used in undo operations.
         """
         if not len(seq)==self.lng:
-            raise MocapyException, "Replacing sequence has wrong shape"
+            raise MocapyException("Replacing sequence has wrong shape")
         self.seq=seq.flat
 
 

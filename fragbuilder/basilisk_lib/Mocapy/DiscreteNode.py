@@ -18,12 +18,14 @@
 """
 Discrete node.
 """
-from types import FloatType
 from bisect import bisect
 from random import randint
 
 from numpy import *
 from numpy.random import random
+
+# Python2->3 compability
+FloatType = type(float)
 
 
 try:
@@ -31,12 +33,12 @@ try:
 except ImportError:
     # Replace mpi module with dummy module
     # to run on a single processor without MPI
-    import DummyMPI
+    from . import DummyMPI
     mpi=DummyMPI
 
-from MocapyExceptions import *
-from ParentMap import ParentMap
-from Node import Node
+from .MocapyExceptions import *
+from .ParentMap import ParentMap
+from .Node import Node
 
 
 # This avoids log underflow
@@ -130,12 +132,12 @@ class DiscreteNode(Node):
         @type cpd_shape: tuple of ints
         """
         if len(cpd_shape)!=len(cpd.shape):
-            raise MocapyDiscreteException, "User CPD has wrong dimensions."
+            raise MocapyDiscreteException("User CPD has wrong dimensions.")
         for i in range(0, len(cpd_shape)):
             dim1=cpd_shape[i]
             dim2=cpd.shape[i]
             if dim1!=dim2:
-                raise MocapyDiscreteException, "User CPD has wrong dimensions."
+                raise MocapyDiscreteException("User CPD has wrong dimensions.")
 
     # Public
 

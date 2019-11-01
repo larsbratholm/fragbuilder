@@ -2,12 +2,12 @@ from __future__ import print_function
 import math
 import sys
 
-from math_utils import *
-from names import *
+from .math_utils import *
+from .names import *
 
-from bio_pdb import PDBParser
-from bio_pdb import is_aa
-from bio_pdb import calc_dihedral
+from .bio_pdb import PDBParser
+from .bio_pdb import is_aa
+from .bio_pdb import calc_dihedral
 
 class PDB:
     """ Usually instantiated from something like:

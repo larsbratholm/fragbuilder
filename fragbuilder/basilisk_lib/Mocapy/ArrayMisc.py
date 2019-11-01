@@ -21,7 +21,9 @@ Miscellaneous array operations.
 
 from numpy import sqrt, sum, dot, transpose, eye
 from random import choice, random
-from types import FloatType, IntType
+
+FloatType = type(float)
+IntType = type(int)
 
 
 

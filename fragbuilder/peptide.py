@@ -4,10 +4,10 @@ import sys
 import openbabel
 import uuid
 
-import basilisk_lib
+from . import basilisk_lib
 
-from residues import *
-from math_utils import *
+from .residues import *
+from .math_utils import *
 class Peptide:
     """ Usually instantiated from something like:
 

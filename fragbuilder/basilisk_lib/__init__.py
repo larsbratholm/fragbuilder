@@ -29,8 +29,9 @@ Mocapy: http://sourceforge.net/projects/mocapy/
 
 """
 
-from basilisk_utils import *
-from basilisk_dbn import *
+from . import Mocapy
+from .basilisk_utils import *
+from .basilisk_dbn import *
 
 __all__ = ["basilisk_utils", "basilisk_dbn"]
 

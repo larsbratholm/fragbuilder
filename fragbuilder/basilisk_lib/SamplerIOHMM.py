@@ -17,7 +17,7 @@
 #
 ############################################################################
 
-from Mocapy.MocapyExceptions import MocapyException
+from .Mocapy.MocapyExceptions import MocapyException
 from random import random
 from bisect import bisect
 from numpy import zeros, cumsum, transpose, sum, exp, log

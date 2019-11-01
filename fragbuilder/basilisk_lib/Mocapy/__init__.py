@@ -40,11 +40,11 @@ try:
 except ImportError:
     # Replace mpi module with dummy module
     # to run on a single processor without MPI
-    import DummyMPI
+    from . import DummyMPI
     mpi=DummyMPI
 
-from DBN import DBN, load_dbn, mocapy_seed
-from DiscreteNode import DiscreteNode, make_random_cpd, normalize_cpd
+from .DBN import DBN, load_dbn, mocapy_seed
+from .DiscreteNode import DiscreteNode, make_random_cpd, normalize_cpd
 
 # These need scipy
-from VMNode import VMNode
+from .VMNode import VMNode

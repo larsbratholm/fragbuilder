@@ -17,8 +17,8 @@
 #
 ############################################################################
 
-from Mocapy.AbstractInfEngine import AbstractInfEngine
-from Mocapy.MocapyExceptions import MocapyException
+from .Mocapy.AbstractInfEngine import AbstractInfEngine
+from .Mocapy.MocapyExceptions import MocapyException
 from numpy import array
 
 
@@ -42,7 +42,7 @@ class InfEngineIOHMM(AbstractInfEngine):
             self.prev_seq=None
 
         if weight!=1:
-            raise MocapyException, "Weight different from 1 not supported"
+            raise MocapyException("Weight different from 1 not supported")
 
         # List of Family objects - one for each node
         # The Family objects tie the data and the nodes together
@@ -79,7 +79,7 @@ class InfEngineIOHMM(AbstractInfEngine):
         @type end: int
         """
         if not 0<=start<self.seq_len or not start<end<=self.seq_len:
-            raise MocapyException, "Start:end out of bounds"
+            raise MocapyException("Start:end out of bounds")
         self.start=start
         self.end=end
 
@@ -88,7 +88,7 @@ class InfEngineIOHMM(AbstractInfEngine):
         Undo last sampling step.
         """
         if self.prev_seq is None:
-            raise MocapyException, "Undo functionality was not enabled"
+            raise MocapyException("Undo functionality was not enabled")
         for pm in self.parentmap_list:
             pm.replace_seq(self.prev_seq)
         self.seq = self.prev_seq

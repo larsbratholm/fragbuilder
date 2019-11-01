@@ -11,17 +11,17 @@ See also U{http://biopython.org/wiki/Seq} and the chapter in our tutorial:
  - U{http://biopython.org/DIST/docs/tutorial/Tutorial.html}
  - U{http://biopython.org/DIST/docs/tutorial/Tutorial.pdf}
 """
+from __future__ import print_function
 __docformat__ ="epytext en" #Don't just use plain text in epydoc API pages!
 
-from __future__ import print_function
 import string #for maketrans only
 import array
 import sys
 
-import Alphabet
-from Alphabet import IUPAC
-from Alphabet.IUPACData import ambiguous_dna_complement, ambiguous_rna_complement
-from Alphabet import CodonTable
+from . import Alphabet
+from .Alphabet import IUPAC
+from .Alphabet.IUPACData import ambiguous_dna_complement, ambiguous_rna_complement
+from .Alphabet import CodonTable
 
 def _maketrans(complement_mapping):
     """Makes a python string translation table (PRIVATE).
@@ -360,7 +360,7 @@ class Seq(object):
         #Return as a string
         return str(other_sequence)
     
-    def count(self, sub, start=0, end=sys.maxint):
+    def count(self, sub, start=0, end=sys.maxsize):
         """Non-overlapping count method, like that of a python string.
 
         This behaves like the python string method of the same name,
@@ -435,7 +435,7 @@ class Seq(object):
         sub_str = self._get_seq_str_and_check_alphabet(char)
         return sub_str in str(self)
 
-    def find(self, sub, start=0, end=sys.maxint):
+    def find(self, sub, start=0, end=sys.maxsize):
         """Find method, like that of a python string.
 
         This behaves like the python string method of the same name.
@@ -461,7 +461,7 @@ class Seq(object):
         sub_str = self._get_seq_str_and_check_alphabet(sub)
         return str(self).find(sub_str, start, end)
 
-    def rfind(self, sub, start=0, end=sys.maxint):
+    def rfind(self, sub, start=0, end=sys.maxsize):
         """Find from right method, like that of a python string.
 
         This behaves like the python string method of the same name.
@@ -487,7 +487,7 @@ class Seq(object):
         sub_str = self._get_seq_str_and_check_alphabet(sub)
         return str(self).rfind(sub_str, start, end)
 
-    def startswith(self, prefix, start=0, end=sys.maxint):
+    def startswith(self, prefix, start=0, end=sys.maxsize):
         """Does the Seq start with the given prefix?  Returns True/False.
 
         This behaves like the python string method of the same name.
@@ -524,7 +524,7 @@ class Seq(object):
             prefix_str = self._get_seq_str_and_check_alphabet(prefix)
             return str(self).startswith(prefix_str, start, end)
 
-    def endswith(self, suffix, start=0, end=sys.maxint):
+    def endswith(self, suffix, start=0, end=sys.maxsize):
         """Does the Seq end with the given suffix?  Returns True/False.
 
         This behaves like the python string method of the same name.
@@ -1260,7 +1260,7 @@ class UnknownSeq(Seq):
         #        new_length, len(("X"*old_length)[index]))
         return UnknownSeq(new_length, self.alphabet, self._character)
 
-    def count(self, sub, start=0, end=sys.maxint):
+    def count(self, sub, start=0, end=sys.maxsize):
         """Non-overlapping count method, like that of a python string.
 
         This behaves like the python string (and Seq object) method of the
@@ -1709,7 +1709,7 @@ class MutableSeq(object):
                 return
         raise ValueError("MutableSeq.remove(x): x not in list")
 
-    def count(self, sub, start=0, end=sys.maxint):
+    def count(self, sub, start=0, end=sys.maxsize):
         """Non-overlapping count method, like that of a python string.
 
         This behaves like the python string method of the same name,
@@ -1802,7 +1802,7 @@ class MutableSeq(object):
             d = ambiguous_rna_complement
         else:
             d = ambiguous_dna_complement
-        c = dict([(x.lower(), y.lower()) for x,y in d.iteritems()])
+        c = dict([(x.lower(), y.lower()) for x,y in d.items()])
         d.update(c)
         self.data = map(lambda c: d[c], self.data)
         self.data = array.array(self.array_indicator, self.data)

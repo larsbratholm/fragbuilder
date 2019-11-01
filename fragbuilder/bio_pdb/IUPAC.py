@@ -7,8 +7,8 @@
 
 """Standard nucleotide and protein alphabets defined by IUPAC."""
 
-import Alphabet
-from Data import IUPACData
+import .Alphabet
+from .Data import IUPACData
 
 ##################### Protein
 

@@ -10,10 +10,10 @@ import warnings
 
 import numpy
 
-from PDBExceptions import \
+from .PDBExceptions import \
         PDBConstructionException, PDBConstructionWarning
-from StructureBuilder import StructureBuilder
-from parse_pdb_header import _parse_pdb_header_list
+from .StructureBuilder import StructureBuilder
+from .parse_pdb_header import _parse_pdb_header_list
 
 
 # If PDB spec says "COLUMNS 18-20" this means line[17:20]
@@ -209,20 +209,20 @@ class PDBParser(object):
                     current_resname=resname
                     try:
                         structure_builder.init_residue(resname, hetero_flag, resseq, icode)
-                    except PDBConstructionException, message:
+                    except PDBConstructionException(message):
                         self._handle_PDB_exception(message, global_line_counter)
                 elif current_residue_id!=residue_id or current_resname!=resname:
                     current_residue_id=residue_id
                     current_resname=resname
                     try:
                         structure_builder.init_residue(resname, hetero_flag, resseq, icode)
-                    except PDBConstructionException, message:
+                    except PDBConstructionException(message):
                         self._handle_PDB_exception(message, global_line_counter) 
                 # init atom
                 try:
                     structure_builder.init_atom(name, coord, bfactor, occupancy, altloc,
                                                 fullname, serial_number, element)
-                except PDBConstructionException, message:
+                except PDBConstructionException(message):
                     self._handle_PDB_exception(message, global_line_counter)
             elif(record_type=='ANISOU'):
                 anisou=map(float, (line[28:35], line[35:42], line[43:49], line[49:56], line[56:63], line[63:70]))

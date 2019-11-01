@@ -12,9 +12,10 @@ Author: Thomas Hamelryck.  Additional code by Kristian Rother.
 """
 
 # Get a Structure object from a PDB file
-from PDBParser import PDBParser
-from Vector import calc_dihedral
-from Polypeptide import is_aa
+from .PDBParser import PDBParser
+from .Vector import calc_dihedral
+from .Polypeptide import is_aa
+from . import Alphabet
 
 # try:
 #     # Get a Structure object from an mmCIF file

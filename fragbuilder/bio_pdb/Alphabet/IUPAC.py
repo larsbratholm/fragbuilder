@@ -7,8 +7,8 @@
 
 """Standard nucleotide and protein alphabets defined by IUPAC."""
 
-import __init__ as Alphabet
-import IUPACData
+from .. import Alphabet
+from . import IUPACData
 
 ##################### Protein
 

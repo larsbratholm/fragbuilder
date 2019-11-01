@@ -30,15 +30,15 @@ try:
 except ImportError:
     # Replace mpi module with dummy module
     # to run on a single processor without MPI
-    import DummyMPI
+    from . import DummyMPI
     mpi=DummyMPI
 
-from Node import Node
-from ParentMap import ContinuousParentMap
-from ArrayMisc import norm
-from VonMises import VMSampler, VMDens, mod2pi, to_radian
-from VonMisesEstimator import estimate_kappa
-from MocapyExceptions import MocapyVMException
+from .Node import Node
+from .ParentMap import ContinuousParentMap
+from .ArrayMisc import norm
+from .VonMises import VMSampler, VMDens, mod2pi, to_radian
+from .VonMisesEstimator import estimate_kappa
+from .MocapyExceptions import MocapyVMException
 
 
 class VMNode(Node):
@@ -158,7 +158,7 @@ class VMNode(Node):
 
     def save_ess(self):
         if self.weight != 1:
-            raise MocapyVMException, "Sequence weighting is not supported"
+            raise MocapyVMException("Sequence weighting is not supported")
         ess=self.ess_list[0]
         ess[0]+=self.weight*self.ess_r
         ess[1]+=self.weight*self.ess_w

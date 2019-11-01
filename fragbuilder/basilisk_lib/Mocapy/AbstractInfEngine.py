@@ -20,7 +20,7 @@ Abstract base class for inference engines.
 """
 
 from numpy import zeros, array, sum, log, exp
-from ArrayMisc import argmax
+from .ArrayMisc import argmax
 
 
 class AbstractInfEngine:

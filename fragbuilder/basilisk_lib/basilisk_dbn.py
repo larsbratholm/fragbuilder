@@ -21,12 +21,12 @@
 #
 
 # import the shipped Mocapy
-from Mocapy import *
-import basilisk_parameter 
+from .Mocapy import *
+from . import basilisk_parameter 
 
-from InfEngineIOHMM import *
-from LikelihoodIOHMM import *
-from SamplerIOHMM import *
+from .InfEngineIOHMM import *
+from .LikelihoodIOHMM import *
+from .SamplerIOHMM import *
 
 # 
 # turning the chi angle + the amino acid

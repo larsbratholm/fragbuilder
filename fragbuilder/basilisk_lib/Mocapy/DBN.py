@@ -21,12 +21,13 @@ The DBN class, plus some loading/initialisation code.
 
 import random
 import pickle
-from types import IntType
 
 from numpy import zeros, sum, log, exp
 import numpy.random
 
-from MocapyExceptions import *
+from .MocapyExceptions import *
+
+IntType = type(int)
 
 
 def mocapy_seed(a, b):
@@ -86,7 +87,7 @@ class DBN:
         # Nodes in slices 1-T
         self.nodes_1=nodes_1
         if len(nodes_0)!=len(nodes_1):
-            raise MocapyDBNException, "Slices need to have the same sumber of nodes."
+            raise MocapyDBNException("Slices need to have the same number of nodes.")
         # Number of nodes/slice
         self.nr_nodes=len(self.nodes_0)
         self.name=name
@@ -146,12 +147,12 @@ class DBN:
         """
         if not type(parent_i)==IntType:
             if not self.index_map.has_key(parent_i):
-                raise MocapyDBNException, "Unknown node name: %s" % str(parent_i)
+                raise MocapyDBNException("Unknown node name: %s" % str(parent_i))
             else:
                 parent_i, slice=self.index_map[parent_i]
         if not type(child_i)==IntType:
             if not self.index_map.has_key(child_i):
-                raise MocapyDBNException, "Unknown node name: %s" % str(child_i)
+                raise MocapyDBNException("Unknown node name: %s" % str(child_i))
             else:
                 child_i, slice=self.index_map[child_i]
         return parent_i, child_i

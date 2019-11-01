@@ -1,13 +1,14 @@
-from peptide import Peptide
+from .peptide import Peptide
 
-from gaussian09_wrapper import G09_opt
-from gaussian09_wrapper import G09_energy
-from gaussian09_wrapper import G09_NMR
+from .gaussian09_wrapper import G09_opt
+from .gaussian09_wrapper import G09_energy
+from .gaussian09_wrapper import G09_NMR
 
-from pdb_tools import PDB
+from .pdb_tools import PDB
 
-from basilisk_wrapper import Basilisk_DBN
-from basilisk_wrapper import set_seed
+from . import basilisk_wrapper
+from .basilisk_wrapper import Basilisk_DBN
+from .basilisk_wrapper import set_seed
 
 __author__ = "Anders S. Christensen"
 __copyright__ = "Copyright 2013, jensengroup"

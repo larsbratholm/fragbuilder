@@ -51,11 +51,11 @@ last residues) have been shown as M (methionine) by the get_sequence method.
 from __future__ import print_function
 import warnings
 
-from Alphabet import generic_protein
-from Seq import Seq
-from PDBExceptions import PDBException
-from Residue import Residue, DisorderedResidue
-from Vector import calc_dihedral, calc_angle
+from .Alphabet import generic_protein
+from .Seq import Seq
+from .PDBExceptions import PDBException
+from .Residue import Residue, DisorderedResidue
+from .Vector import calc_dihedral, calc_angle
 
 
 to_one_letter_code= {
