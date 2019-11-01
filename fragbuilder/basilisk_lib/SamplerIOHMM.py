@@ -68,7 +68,7 @@ class SamplerFwBt:
         # if all the child nodes are unobserved (backbone indendent sampling)
         # we can save some time and just do ancestral sampling here. 
         if (int( sum(mismask[:,2])) == seq_len ) :
-            for l in xrange(0, seq_len):
+            for l in range(0, seq_len):
                 if l==0:
                     node=nodes_0[hidden_node]
                 else:
@@ -84,7 +84,7 @@ class SamplerFwBt:
         
         # Calculate the forward array
         forward = zeros((slice_count, node_size))
-        for i,l in enumerate(xrange(start, end)):
+        for i,l in enumerate(range(start, end)):
             # For the first slice
             if l==0 or i==0:
                 if l==0:
@@ -128,7 +128,7 @@ class SamplerFwBt:
                         forward[i,:] *= child_dist  
                     else:
                         org_node_value = node.parentmap[l][-1]
-                        for j in xrange(hidden_node_size):
+                        for j in range(hidden_node_size):
                             node.parentmap[l] = j
                             forward[i,j] *= exp( child.get_slice_log_likelihood(l)[0] )
                         node.parentmap[l] = org_node_value
@@ -147,7 +147,7 @@ class SamplerFwBt:
             forward[i]/=s
                     
         # Do the backtrack
-        for l in xrange(end-1, start-1,-1):
+        for l in range(end-1, start-1,-1):
             i = l-start
 
             if l==0:

@@ -1,6 +1,5 @@
 import os
 import pybel
-import string
 import numpy
 
 fragbuild_dir = os.path.dirname(__file__) + "/"

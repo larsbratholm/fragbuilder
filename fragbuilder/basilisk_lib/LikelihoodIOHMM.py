@@ -81,7 +81,7 @@ class LikelihoodIOHMM_Fw:
 
         # Calculate the forward array
         forward = zeros((slice_count, hidden_node_size))
-        for i,l in enumerate(xrange(start, end)):
+        for i,l in enumerate(range(start, end)):
             # For the first slice
             if l==0 or i==0:
                 if l==0:
@@ -122,7 +122,7 @@ class LikelihoodIOHMM_Fw:
             prev_node_value = node.parentmap[l][-1]
             for child in node.children_1:
                 if ignore_child_mism or mismask[l,child.node_index] < one:
-                    for j in xrange(hidden_node_size):
+                    for j in range(hidden_node_size):
                         node.parentmap[l] = j
                         forward[i,j] *= exp( child.get_slice_log_likelihood(l)[0] )
             node.parentmap[l] = prev_node_value

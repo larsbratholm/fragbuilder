@@ -146,12 +146,12 @@ class DBN:
         @rtype: (int, int)
         """
         if not type(parent_i)==IntType:
-            if not self.index_map.has_key(parent_i):
+            if not parent_i in self.index_map:
                 raise MocapyDBNException("Unknown node name: %s" % str(parent_i))
             else:
                 parent_i, slice=self.index_map[parent_i]
         if not type(child_i)==IntType:
-            if not self.index_map.has_key(child_i):
+            if not child_i in self.index_map:
                 raise MocapyDBNException("Unknown node name: %s" % str(child_i))
             else:
                 child_i, slice=self.index_map[child_i]

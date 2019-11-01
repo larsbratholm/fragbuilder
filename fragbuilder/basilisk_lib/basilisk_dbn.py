@@ -170,7 +170,7 @@ class basilisk_dbn:
 		inf_engine = InfEngineIOHMM(self._dbn, sampler, data, mism, support_undo=False)
 		sg = inf_engine.get_sample_generator()
 		
-		seq, slices = sg.next()
+		seq, slices = next(sg)
 		for i in range(2, slices) :
 			chis.append(seq[i][2])
 		

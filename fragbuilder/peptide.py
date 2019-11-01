@@ -387,7 +387,7 @@ class Peptide:
     def get_smiles(self):
         """ Returns the SMILES string corresponding to the peptide.
         """
-        return string.split(str(self._molecule))[0]
+        return str(self._molecule).split()[0]
 
     def write_pdb(self, filename, QUIET=False):
         """ Writes the peptide molecule to a file in .pdb format.
