@@ -7,7 +7,7 @@ BREAKING NEWS: The Official FragBuilder paper is out: https://peerj.com/articles
 
 ![alt text](https://dl.dropboxusercontent.com/u/17435887/fragbuilder/model_angles_crop.png "Di-alanine peptide")
 #### Requires:
- - Python 2.x
+ - Python 3.x
  - Openbabel 2.x.x (with Python bindings installed)
  - Numpy (pretty much any version should be fine)
 
@@ -18,22 +18,22 @@ FragBuilder will run with most versions of Open Babel, however there was bug in 
 I have compiled a short guide to install the latest Open Babel here:
 http://combichem.blogspot.dk/2013/12/compiling-open-babel-with-python.html
 
+Openbabel can be installed in anaconda by running
+
+    conda install -c openbabel openbabel
+
 If you're interested in FragBuilder, you might also be interested in PeptideBuilder (very similar to FragBuilder):
 - https://github.com/mtien/PeptideBuilder/
 - https://peerj.com/articles/80/
 
-How to use
+How to install
 ==========
 
-##### 1) Clone fragbuilder from this repository
+##### 1) Pip install fragbuilder from this repository
 
-    git clone https://github.com/andersx/fragbuilder
+    pip install git+https://github.com/larsbratholm/fragbuilder
 
-##### 2) Export the frabuilder directory to your PYTHONPATH eg:
-
-    export PYTHONPATH=/home/andersx/dev/fragbuilder:$PYTHONPATH
-
-##### 3) In your Python:
+##### 2) In your Python:
 
     import fragbuilder
 
@@ -92,7 +92,6 @@ I have the following functionality in the making (may be in the development bran
 - Module to write Gaussian spin-spin coupling input files.
 
 Contact me if you have more ideas!
-
 
 
 How to cite:
