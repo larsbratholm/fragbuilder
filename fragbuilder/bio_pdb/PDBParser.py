@@ -74,7 +74,7 @@ class PDBParser(object):
         # Make a StructureBuilder instance (pass id of structure as parameter)
         self.structure_builder.init_structure(id)
         handle_close = False
-        if isinstance(file, basestring):
+        if isinstance(file, str):
             file=open(file)
             handle_close = True
         self._parse(file.readlines())

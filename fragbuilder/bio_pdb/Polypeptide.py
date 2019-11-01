@@ -208,7 +208,7 @@ def is_aa(residue, standard=False):
     False
     """
     #TODO - What about special cases like XXX, can they appear in PDB files?
-    if not isinstance(residue, basestring):
+    if not isinstance(residue, str):
         residue=residue.get_resname()
     residue=residue.upper()
     if standard:

@@ -3,7 +3,8 @@ from fragbuilder import PDB
 from fragbuilder import Peptide
 
 # Make a PDB object
-pdb = PDB("1xnb.pdb")
+#pdb = PDB("1xnb.pdb")
+pdb = PDB("pep.pdb")
 
 # Extract length and sequence
 n = pdb.get_length()
