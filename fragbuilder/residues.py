@@ -6,18 +6,19 @@ import numpy
 fragbuild_dir = os.path.dirname(__file__) + "/"
 
 def ReadCoordzAwesome(Filename):
-        ThisAwesomeMol = []
-        XYZFile = open(Filename,"r")
-        for Line in XYZFile:
-                if (len(string.split(Line)) == 4):
-                        Type = string.split(Line)[0]
-                        X = float(string.split(Line)[1])
-                        Y = float(string.split(Line)[2])
-                        Z = float(string.split(Line)[3])
-                        Coords = numpy.array([X,Y,Z])
-                        Element = [Type, Coords]
-                        ThisAwesomeMol.append(Element)
-        return ThisAwesomeMol
+    ThisAwesomeMol = []
+    XYZFile = open(Filename,"r")
+    for line in XYZFile:
+        tokens = line.split()
+        if len(tokens) == 4:
+            type_ = tokens[0]
+            x = float(tokens[1])
+            y = float(tokens[2])
+            z = float(tokens[3])
+            coords = numpy.array([x,y,z])
+            element = [type_, coords]
+            ThisAwesomeMol.append(element)
+    return ThisAwesomeMol
 
 
 
@@ -31,7 +32,7 @@ class LeftMethylCap:
     SC      = []
     Rotamer     = []
     def __init__(self):
-        self.Mol = pybel.readfile("xyz", self.Filename).next()
+        self.Mol = next(pybel.readfile("xyz", self.Filename))
         self.AwesomeMol = ReadCoordzAwesome(self.Filename)
 
 
@@ -45,7 +46,7 @@ class RightMethylCap:
     SC      = []
     Rotamer     = []
     def __init__(self):
-        self.Mol = pybel.readfile("xyz", self.Filename).next()
+        self.Mol = next(pybel.readfile("xyz", self.Filename))
         self.AwesomeMol = ReadCoordzAwesome(self.Filename)
 
 
@@ -58,7 +59,7 @@ class LeftNeutralCap:
     SC      = []
     Rotamer     = []
     def __init__(self):
-        self.Mol = pybel.readfile("xyz", self.Filename).next()
+        self.Mol = next(pybel.readfile("xyz", self.Filename))
         self.AwesomeMol = ReadCoordzAwesome(self.Filename)
 
 
@@ -71,7 +72,7 @@ class RightNeutralCap:
     SC      = []
     Rotamer     = []
     def __init__(self):
-        self.Mol = pybel.readfile("xyz", self.Filename).next()
+        self.Mol = next(pybel.readfile("xyz", self.Filename))
         self.AwesomeMol = ReadCoordzAwesome(self.Filename)
 
 
@@ -84,7 +85,7 @@ class LeftChargedCap:
     SC      = []
     Rotamer     = []
     def __init__(self):
-        self.Mol = pybel.readfile("xyz", self.Filename).next()
+        self.Mol = next(pybel.readfile("xyz", self.Filename))
         self.AwesomeMol = ReadCoordzAwesome(self.Filename)
 
 
@@ -97,7 +98,7 @@ class RightChargedCap:
     SC      = []
     Rotamer     = []
     def __init__(self):
-        self.Mol = pybel.readfile("xyz", self.Filename).next()
+        self.Mol = next(pybel.readfile("xyz", self.Filename))
         self.AwesomeMol = ReadCoordzAwesome(self.Filename)
 
 
@@ -111,7 +112,7 @@ class Alanine:
     SC      = []
     Rotamer     = []
     def __init__(self):
-        self.Mol = pybel.readfile("xyz", self.Filename).next()
+        self.Mol = next(pybel.readfile("xyz", self.Filename))
         self.AwesomeMol = ReadCoordzAwesome(self.Filename)
 
 
@@ -157,7 +158,7 @@ class Arginine:
               [-62, -68, -65, 175],
               [-62, -68, -65, -85]]
     def __init__(self):
-        self.Mol = pybel.readfile("xyz", self.Filename).next()
+        self.Mol = next(pybel.readfile("xyz", self.Filename))
         self.AwesomeMol = ReadCoordzAwesome(self.Filename)
 
 
@@ -176,7 +177,7 @@ class Aspargine:
               [-65, -75],
               [-65, 120]]
     def __init__(self):
-        self.Mol = pybel.readfile("xyz", self.Filename).next()
+        self.Mol = next(pybel.readfile("xyz", self.Filename))
         self.AwesomeMol = ReadCoordzAwesome(self.Filename)
 
 
@@ -192,7 +193,7 @@ class Aspartate:
               [-177, 0],
               [-177, 65]]
     def __init__(self):
-        self.Mol = pybel.readfile("xyz", self.Filename).next()
+        self.Mol = next(pybel.readfile("xyz", self.Filename))
         self.AwesomeMol = ReadCoordzAwesome(self.Filename)
 
 
@@ -206,7 +207,7 @@ class Cysteine:
     SC      = [[1,3,5,9]]
     Rotamer     = [[62],[-177],[-65]]
     def __init__(self):
-        self.Mol = pybel.readfile("xyz", self.Filename).next()
+        self.Mol = next(pybel.readfile("xyz", self.Filename))
         self.AwesomeMol = ReadCoordzAwesome(self.Filename)
 
 class Glutamate:
@@ -225,7 +226,7 @@ class Glutamate:
               [-67,  180, -10],
               [-65,  -65, -40]]
     def __init__(self):
-        self.Mol = pybel.readfile("xyz", self.Filename).next()
+        self.Mol = next(pybel.readfile("xyz", self.Filename))
         self.AwesomeMol = ReadCoordzAwesome(self.Filename)
 
 class Glutamine:
@@ -245,7 +246,7 @@ class Glutamine:
               [-65,  -65, -40],
               [-65,  -65, 100]]
     def __init__(self):
-        self.Mol = pybel.readfile("xyz", self.Filename).next()
+        self.Mol = next(pybel.readfile("xyz", self.Filename))
         self.AwesomeMol = ReadCoordzAwesome(self.Filename)
 
 class Glycine:
@@ -257,7 +258,7 @@ class Glycine:
     SC      = []
     Rotamer     = []
     def __init__(self):
-        self.Mol = pybel.readfile("xyz", self.Filename).next()
+        self.Mol = next(pybel.readfile("xyz", self.Filename))
         self.AwesomeMol = ReadCoordzAwesome(self.Filename)
 
 class Histidine:
@@ -275,7 +276,7 @@ class Histidine:
               [-65, -70],
               [-65, 165]]
     def __init__(self):
-        self.Mol = pybel.readfile("xyz", self.Filename).next()
+        self.Mol = next(pybel.readfile("xyz", self.Filename))
         self.AwesomeMol = ReadCoordzAwesome(self.Filename)
 
 
@@ -294,7 +295,7 @@ class Isoleucine:
               [ -65, 170],
               [ -57, -60]]
     def __init__(self):
-        self.Mol = pybel.readfile("xyz", self.Filename).next()
+        self.Mol = next(pybel.readfile("xyz", self.Filename))
         self.AwesomeMol = ReadCoordzAwesome(self.Filename)
 
 
@@ -312,7 +313,7 @@ class Leucine:
               [ -85,  65],
               [ -65, 175]]
     def __init__(self):
-        self.Mol = pybel.readfile("xyz", self.Filename).next()
+        self.Mol = next(pybel.readfile("xyz", self.Filename))
         self.AwesomeMol = ReadCoordzAwesome(self.Filename)
 
 class Lysine:
@@ -350,7 +351,7 @@ class Lysine:
               [-62, -68, 180, -65],
               [-62, -68, -68, 180]]
     def __init__(self):
-        self.Mol = pybel.readfile("xyz", self.Filename).next()
+        self.Mol = next(pybel.readfile("xyz", self.Filename))
         self.AwesomeMol = ReadCoordzAwesome(self.Filename)
 
 class Methionine:
@@ -374,7 +375,7 @@ class Methionine:
                [-65, -65, 180],
                [-65, -65, -70]]
     def __init__(self):
-        self.Mol = pybel.readfile("xyz", self.Filename).next()
+        self.Mol = next(pybel.readfile("xyz", self.Filename))
         self.AwesomeMol = ReadCoordzAwesome(self.Filename)
 
 
@@ -391,7 +392,7 @@ class Phenylalanine:
                [-65, -85],
                [-65, -30]]
     def __init__(self):
-        self.Mol = pybel.readfile("xyz", self.Filename).next()
+        self.Mol = next(pybel.readfile("xyz", self.Filename))
         self.AwesomeMol = ReadCoordzAwesome(self.Filename)
 
 class Proline:
@@ -403,7 +404,7 @@ class Proline:
     SC      = []
     Rotamer     = []
     def __init__(self):
-        self.Mol = pybel.readfile("xyz", self.Filename).next()
+        self.Mol = next(pybel.readfile("xyz", self.Filename))
         self.AwesomeMol = ReadCoordzAwesome(self.Filename)
 
 class Serine:
@@ -417,7 +418,7 @@ class Serine:
                [-177],
                [-65]]
     def __init__(self):
-        self.Mol = pybel.readfile("xyz", self.Filename).next()
+        self.Mol = next(pybel.readfile("xyz", self.Filename))
         self.AwesomeMol = ReadCoordzAwesome(self.Filename)
 
 class Threonine:
@@ -431,7 +432,7 @@ class Threonine:
                [-175],
                [-65]]
     def __init__(self):
-        self.Mol = pybel.readfile("xyz", self.Filename).next()
+        self.Mol = next(pybel.readfile("xyz", self.Filename))
         self.AwesomeMol = ReadCoordzAwesome(self.Filename)
 
 class Tryptophan:
@@ -449,7 +450,7 @@ class Tryptophan:
                [ -65,   -5],
                [ -65,   95]]
     def __init__(self):
-        self.Mol = pybel.readfile("xyz", self.Filename).next()
+        self.Mol = next(pybel.readfile("xyz", self.Filename))
         self.AwesomeMol = ReadCoordzAwesome(self.Filename)
 
 class Tyrosine:
@@ -464,7 +465,7 @@ class Tyrosine:
                [-65, -85],
                [-65, -30]]
     def __init__(self):
-        self.Mol = pybel.readfile("xyz", self.Filename).next()
+        self.Mol = next(pybel.readfile("xyz", self.Filename))
         self.AwesomeMol = ReadCoordzAwesome(self.Filename)
 
 class Valine:
@@ -478,7 +479,7 @@ class Valine:
                   [175],
               [-60]]
     def __init__(self):
-        self.Mol = pybel.readfile("xyz", self.Filename).next()
+        self.Mol = next(pybel.readfile("xyz", self.Filename))
         self.AwesomeMol = ReadCoordzAwesome(self.Filename)
 
 

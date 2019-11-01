@@ -29,6 +29,7 @@ def setup_fragbuilder():
         # set up package contents
 
         ext_package = 'fragbuilder',
+        package_data = {'': ['*.xyz']}
 )
 
 if __name__ == '__main__':

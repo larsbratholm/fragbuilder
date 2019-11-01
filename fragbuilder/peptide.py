@@ -230,7 +230,7 @@ class Peptide:
         file_out.write("\n")
         file_out.close()
 
-        mol = pybel.readfile("xyz", temp_xyz).next()
+        mol = next(pybel.readfile("xyz", temp_xyz))
         for i in range(len(Fragment)-2):
 
             ThisResidue = i + 1
@@ -465,8 +465,8 @@ class Peptide:
             sys.exit(1)
 
         if res_nr < 1 or res_nr > len(self._residues) - 2:
-                        print("ERROR: Error in set_bb_angles. User supplied index:", res_nr, "Allowed range: 1 -", len(self._residues) - 2)
-                        sys.exit(1)
+            print("ERROR: Error in set_bb_angles. User supplied index:", res_nr, "Allowed range: 1 -", len(self._residues) - 2)
+            sys.exit(1)
 
         offset_prev = 0
         offset_this = 0
@@ -500,8 +500,9 @@ class Peptide:
             self._molecule.OBMol.SetTorsion(CA0, CO0, NH1, CA1, omega) #Omega
             self._molecule.OBMol.SetTorsion(CO0, NH1, CA1, CO1, phi) #PHI
             # If c-term cap is not methyl, there is no NH2 atom
-            if NH2 != None:
+            if NH2 is not None:
                 self._molecule.OBMol.SetTorsion(NH1, CA1, CO1, NH2, psi) #PSI
+            quit()
         return
 
 
