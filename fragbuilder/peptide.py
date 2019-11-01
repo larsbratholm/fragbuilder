@@ -502,7 +502,6 @@ class Peptide:
             # If c-term cap is not methyl, there is no NH2 atom
             if NH2 is not None:
                 self._molecule.OBMol.SetTorsion(NH1, CA1, CO1, NH2, psi) #PSI
-            quit()
         return
 
 
